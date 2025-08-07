@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VS Code / GitHub Developer Theme Design System */
+
+@layer base {
+  :root {
+    /* Light theme - VS Code Light */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
+    
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 20%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    
+    --primary: 216 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 0 0% 20%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    --accent: 216 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 216 100% 50%;
+    
+    --radius: 0.375rem;
+    
+    /* VS Code specific colors */
+    --vscode-bg: 0 0% 100%;
+    --vscode-sidebar: 0 0% 97%;
+    --vscode-border: 0 0% 90%;
+    --vscode-tab: 0 0% 96%;
+    --vscode-tab-active: 0 0% 100%;
+    --vscode-text: 0 0% 20%;
+    --vscode-text-muted: 0 0% 45%;
+    --vscode-accent: 216 100% 50%;
+    --vscode-success: 142 71% 45%;
+    --vscode-warning: 45 93% 47%;
+    --vscode-error: 0 84% 60%;
+    
+    /* Terminal colors */
+    --terminal-bg: 0 0% 98%;
+    --terminal-text: 0 0% 20%;
+    --terminal-cursor: 216 100% 50%;
+    
+    /* Code syntax highlighting */
+    --syntax-keyword: 0 0% 60%;
+    --syntax-string: 142 71% 45%;
+    --syntax-number: 216 100% 50%;
+    --syntax-comment: 0 0% 60%;
+    --syntax-function: 262 83% 58%;
+    
+    --sidebar-background: 0 0% 97%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 216 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 20%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 216 100% 50%;
+  }
+
+  .dark {
+    /* Dark theme - VS Code Dark */
+    --background: 220 13% 18%;
+    --foreground: 220 14% 96%;
+    
+    --card: 220 13% 16%;
+    --card-foreground: 220 14% 96%;
+    
+    --popover: 220 13% 16%;
+    --popover-foreground: 220 14% 96%;
+    
+    --primary: 210 100% 64%;
+    --primary-foreground: 220 13% 18%;
+    
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 220 14% 96%;
+    
+    --muted: 215 25% 27%;
+    --muted-foreground: 220 9% 55%;
+    
+    --accent: 210 100% 64%;
+    --accent-foreground: 220 13% 18%;
+    
+    --destructive: 0 91% 71%;
+    --destructive-foreground: 220 13% 18%;
+    
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    --ring: 210 100% 64%;
+    
+    /* VS Code dark theme colors */
+    --vscode-bg: 220 13% 18%;
+    --vscode-sidebar: 218 15% 15%;
+    --vscode-border: 215 25% 27%;
+    --vscode-tab: 215 28% 17%;
+    --vscode-tab-active: 220 13% 18%;
+    --vscode-text: 220 14% 96%;
+    --vscode-text-muted: 220 9% 55%;
+    --vscode-accent: 210 100% 64%;
+    --vscode-success: 127 100% 80%;
+    --vscode-warning: 54 100% 68%;
+    --vscode-error: 0 91% 71%;
+    
+    /* Terminal dark colors */
+    --terminal-bg: 218 15% 15%;
+    --terminal-text: 220 14% 96%;
+    --terminal-cursor: 210 100% 64%;
+    
+    /* Dark syntax highlighting */
+    --syntax-keyword: 210 100% 64%;
+    --syntax-string: 95 38% 62%;
+    --syntax-number: 29 54% 61%;
+    --syntax-comment: 220 9% 55%;
+    --syntax-function: 267 84% 81%;
+    
+    --sidebar-background: 218 15% 15%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 210 100% 64%;
+    --sidebar-primary-foreground: 220 13% 18%;
+    --sidebar-accent: 215 25% 27%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 215 25% 27%;
+    --sidebar-ring: 210 100% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-vscode-bg text-vscode-text font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Custom scrollbar for VS Code feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-vscode-bg;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-vscode-text-muted rounded-sm;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-vscode-text;
+  }
+  
+  /* Code font class */
+  .font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  }
+}
+
+@layer utilities {
+  /* VS Code specific utility classes */
+  .vscode-border {
+    @apply border-vscode-border;
+  }
+  
+  .vscode-bg {
+    @apply bg-vscode-bg;
+  }
+  
+  .vscode-sidebar {
+    @apply bg-vscode-sidebar;
+  }
+  
+  .vscode-tab {
+    @apply bg-vscode-tab text-vscode-text-muted;
+  }
+  
+  .vscode-tab-active {
+    @apply bg-vscode-tab-active text-vscode-text border-b-2 border-vscode-accent;
+  }
+  
+  .terminal-bg {
+    @apply bg-terminal-bg text-terminal-text;
+  }
+  
+  .syntax-keyword {
+    @apply text-syntax-keyword;
+  }
+  
+  .syntax-string {
+    @apply text-syntax-string;
+  }
+  
+  .syntax-number {
+    @apply text-syntax-number;
+  }
+  
+  .syntax-comment {
+    @apply text-syntax-comment;
+  }
+  
+  .syntax-function {
+    @apply text-syntax-function;
+  }
+  
+  /* Responsive utilities */
+  .xs\:inline {
+    @media (min-width: 475px) {
+      display: inline;
+    }
+  }
+  
+  .xs\:hidden {
+    @media (min-width: 475px) {
+      display: none;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
